@@ -12,23 +12,8 @@ public class Plateau {
 	}
 	
 	
-	/*
-	public void deplacerPion(Pirate pirate, int deplacement) {
-		int positionCourante = pirate.getPosition();
-		pirate.getPion().setPosition(positionCourante += deplacement);
-	}
-	*/
 	
-	
-	//utilité à revoir
-	public Case getCase(int numCase) {
-		for (Case c : cases) {
-			if (c.getNumCase() == numCase) {
-				return c;
-			}
-		}
-		return null;
-	}
+
 	
 	
 	
