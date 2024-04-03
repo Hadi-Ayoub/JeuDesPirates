@@ -4,12 +4,13 @@ public class Pirate {
 	private String nom;
 	private int pointsDeVie;
 	private Pion pion;
+	private boolean possibiliteAvancement = true;
 	
 	
 	public Pirate(String nom,Pion pion) {
 		this.nom = nom;
 		this.pion = pion;
-		pointsDeVie = 5;
+		pointsDeVie = 10;
 	}
 	
 	public void recevoirDegats(int degat) {
@@ -36,6 +37,13 @@ public class Pirate {
 		return nom;
 	}
 	
+	public boolean getPossibiliteDeplacement() {
+		return possibiliteAvancement;
+	}
+	
+	public void setPossibiliteAvancement(boolean possibilite) {
+		possibiliteAvancement = possibilite;
+	}
 
 	
 	

@@ -18,18 +18,24 @@ public class CaseEffetPosition extends Case{
 	
 	// Case Piège
 	public void retournerCaseDepart(Pirate pirate) {
-		pirate.getPion().setPosition(0);
-		jdb.afficherRetourDepart(pirate);
+		if (pirate.getPosition() == this.getNumCase()) {	
+			pirate.getPion().setPosition(0);
+			jdb.afficherRetourDepart(pirate);
+		}
 	}
+	
 	
 	// Case Switch
-	
 	public void echangerPositions(Pirate[] pirates, int pirateCourant) {
-		pirates[pirateCourant].getPion().setPosition(pirates[(pirateCourant +1)% 2 ].getPosition());
-		pirates[(pirateCourant + 1 ) % 2 ].getPion().setPosition(pirates[pirateCourant].getPosition());
-		jdb.afficherEchangePions(pirates,pirateCourant);
+		if (pirates[pirateCourant].getPosition() == this.getNumCase()) {
+			pirates[pirateCourant].getPion().setPosition(pirates[(pirateCourant +1)% 2 ].getPosition());
+			pirates[(pirateCourant + 1 ) % 2 ].getPion().setPosition(pirates[pirateCourant].getPosition());
+			jdb.afficherEchangePions(pirates,pirateCourant);
+		}
 	}
 	
+	
+	// Case Prison
 	public boolean bloquerPion(Pirate pirate, int resultatDe) {
 		boolean pionBloque = false;
 		if (resultatDe == this.getNumCase()) {
@@ -39,8 +45,19 @@ public class CaseEffetPosition extends Case{
 		return pionBloque;
 	}
 	
+	//Case Espoir
+	public boolean espererLiberation(Jeu jeu, Pirate pirate, int valeurDe) {
+		boolean caseEspoir = false;
+		if (pirate.getPosition() == this.getNumCase()) {
+			caseEspoir = true;
+			jeu.deplacerPion(pirate, (0-valeurDe) );
+			jdb.afficherEffetEspoir(pirate, valeurDe);
+		}
+		return caseEspoir;
+	}
 	
-	// Case Prison
+	
+	
 	
 	
 	
